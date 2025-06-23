@@ -63,6 +63,12 @@ app.use('/api/appointments', authMiddleware, appointmentRoutes);
 app.use('/api/chatbot', authMiddleware, chatbotRoutes);
 app.use('/api/notifications', authMiddleware, notificationRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'API is live ✅' });
+});
+
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Mental Wellness API is running' });
